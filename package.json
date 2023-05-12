@@ -15,5 +15,8 @@
   ],
   "keywords": [],
   "author": "Serban Alexandru Florian",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "depcheck": "^1.4.3"
+  }
 }
