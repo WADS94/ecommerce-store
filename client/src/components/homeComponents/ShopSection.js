@@ -4,7 +4,6 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 import Rating from "./Rating";
-import Pagination from "./pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { listProduct } from "../../Redux/Actions/ProductActions";
 import Loading from "../LoadingError/Loading";
@@ -105,7 +104,7 @@ const ShopSection = (props) => {
     if (
       minPrice !== undefined &&
       maxPrice !== undefined &&
-      currentSliderPrice[0] == currentSliderPrice[1]
+      currentSliderPrice[0] === currentSliderPrice[1]
     ) {
       setCurrentSliderPrice([minPrice, maxPrice]);
     }

@@ -10,8 +10,10 @@ import cors from "cors";
 import cloudinary from "cloudinary";
 import path from "path";
 import stripeRouter from "./Routes/stripeRoutes.js";
+import mongoose from "mongoose";
 
 dotenv.config();
+mongoose.set("strictQuery", true);
 connectDatabase();
 const app = express();
 app.use(
@@ -42,14 +44,14 @@ app.get("/api/config/paypal", (req, res) => {
 });
 
 // Serve the client app
-app.use(express.static(path.join(process.cwd(), "client/build")));
+app.use(express.static(path.join(process.cwd(), "../client/build")));
 
 // Serve the admin app
-app.use("/admin", express.static(path.join(process.cwd(), "admin/build")));
+app.use("/admin", express.static(path.join(process.cwd(), "../admin/build")));
 
 // Catch-all handler for client app (for client-side routing)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(process.cwd(), "client/build", "index.html"));
+  res.sendFile(path.join(process.cwd(), "../client/build", "index.html"));
 });
 
 // ERROR HANDLER

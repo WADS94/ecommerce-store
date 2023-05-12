@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaFacebook, FaYoutube, FaTiktok, FaInstagram } from "react-icons/fa";
-import { SiVisa, SiMastercard, SiPaypal } from "react-icons/si";
 
 const Footer = () => {
   return (
