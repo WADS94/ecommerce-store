@@ -1,0 +1,12 @@
+{
+  "name": "casaviitorului",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "postinstall": "npm install --prefix client && npm run build --prefix client && npm install --prefix admin && npm run build --prefix admin"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
