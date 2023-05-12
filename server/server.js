@@ -41,16 +41,16 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
-// // Serve the client app
-// app.use(express.static(path.join(process.cwd(), "client/build")));
+// Serve the client app
+app.use(express.static(path.join(process.cwd(), "client/build")));
 
-// // Serve the admin app
-// app.use("/admin", express.static(path.join(process.cwd(), "admin/build")));
+// Serve the admin app
+app.use("/admin", express.static(path.join(process.cwd(), "admin/build")));
 
-// // Catch-all handler for client app (for client-side routing)
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(process.cwd(), "client/build", "index.html"));
-// });
+// Catch-all handler for client app (for client-side routing)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "client/build", "index.html"));
+});
 
 // ERROR HANDLER
 app.use(notFound);
