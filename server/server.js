@@ -8,7 +8,8 @@ import userRouter from "./Routes/UserRoutes.js";
 import orderRouter from "./Routes/orderRoutes.js";
 import cors from "cors";
 import cloudinary from "cloudinary";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import stripeRouter from "./Routes/stripeRoutes.js";
 import mongoose from "mongoose";
 
@@ -43,15 +44,22 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
-// Serve the client app
-app.use(express.static(path.join(process.cwd(), "../client/build")));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Serve the admin app
-app.use("/admin", express.static(path.join(process.cwd(), "../admin/build")));
+// Serve static files from the React client app
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-// Catch-all handler for client app (for client-side routing)
+// Serve static files from the React admin app
+app.use("/admin", express.static(path.resolve(__dirname, "../admin/build")));
+
+// Anything that doesn't match the above, send back the index.html file
 app.get("*", (req, res) => {
-  res.sendFile(path.join(process.cwd(), "../client/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
+
+// For /admin route, send the admin index.html file
+app.get("/admin*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../admin/build/index.html"));
 });
 
 // ERROR HANDLER

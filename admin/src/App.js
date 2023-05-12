@@ -19,7 +19,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="/admin">
         <Switch>
           <PrivateRouter path="/" component={HomeScreen} exact />
           <PrivateRouter path="/products" component={ProductScreen} />

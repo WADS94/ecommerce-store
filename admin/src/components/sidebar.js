@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className="aside-top">
           <Link to="/" className="brand-wrap">
             <img
-              src="/favicon.ico"
+              src="/favicon.png"
               style={{ height: "46" }}
               className="logo"
               alt="Ecommerce dashboard template"
