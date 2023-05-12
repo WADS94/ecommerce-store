@@ -4,14 +4,14 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run --workspace=server start",
-    "postinstall": "npm install && npm run build",
+    "postinstall": "npm run build",
     "build": "npm run --workspace=client build && npm run --workspace=admin build"
-},
+  },
   "workspaces": [
     "client",
     "server",
     "admin"
-],
+  ],
   "keywords": [],
   "author": "Serban Alexandru Florian",
   "license": "ISC"
