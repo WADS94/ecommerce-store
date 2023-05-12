@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run --workspace=server start",
     "postinstall": "npm run build",
-    "build": "npm run --workspace=client build && npm run --workspace=admin build"
+    "build": "npm run --workspace=client build && npm run --workspace=admin build",
+    "prune": "npm prune --production"
   },
   "workspaces": [
     "client",

@@ -162,6 +162,13 @@ const Header = () => {
                       Buna, {userInfo.name}
                     </button>
                     <div className="dropdown-menu">
+                      {userInfo.isAdmin ? (
+                        <Link className="dropdown-item" to="/admin/">
+                          Administrare
+                        </Link>
+                      ) : (
+                        ""
+                      )}
                       <Link className="dropdown-item" to="/profile">
                         Profil
                       </Link>
