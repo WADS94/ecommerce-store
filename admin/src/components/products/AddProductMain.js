@@ -62,21 +62,32 @@ const AddProductMain = () => {
   const onChange = (e) => {
     const files = Array.from(e.target.files);
 
-    setImagesPreview([]);
-    setGallery([]);
-
     files.forEach((file) => {
       const reader = new FileReader();
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImagesPreview((oldArray) => [...oldArray, reader.result]);
-          setGallery((oldArray) => [...oldArray, reader.result]);
+          const imageBase64 = reader.result;
+
+          // Check if the image is already in the collection
+          if (!gallery.includes(imageBase64)) {
+            setImagesPreview((oldArray) => [...oldArray, imageBase64]);
+            setGallery((oldArray) => [...oldArray, imageBase64]);
+          }
         }
       };
 
       reader.readAsDataURL(file);
     });
+  };
+
+  const removeImage = (index) => {
+    setImagesPreview((prevImages) =>
+      prevImages.filter((_, imgIndex) => imgIndex !== index)
+    );
+    setGallery((prevImages) =>
+      prevImages.filter((_, imgIndex) => imgIndex !== index)
+    );
   };
   return (
     <>
@@ -190,17 +201,40 @@ const AddProductMain = () => {
                         Selecteaza imagini
                       </label>
                     </div>
-
-                    {imagesPreview.map((img) => (
-                      <img
-                        src={img}
-                        key={img}
-                        alt="Images Preview"
-                        className="mt-3 mr-2"
-                        width="55"
-                        height="52"
-                      />
-                    ))}
+                    <div className="mt-3">
+                          {imagesPreview.map((img, index) => (
+                            <div
+                              className="image-container mr-2"
+                              key={img}
+                              style={{
+                                display: "inline-block",
+                                position: "relative",
+                              }}
+                            >
+                              <img
+                                src={img}
+                                alt="Images Preview"
+                                width="55"
+                                height="52"
+                              />
+                              <i
+                                className="fa fa-times remove-image-icon"
+                                style={{
+                                  position: "absolute",
+                                  top: "0",
+                                  right: "0",
+                                  cursor: "pointer",
+                                  background: "rgba(0, 0, 0, 0.5)",
+                                  borderRadius: "50%",
+                                  padding: "2px",
+                                  color: "white",
+                                  fontWeight: "bold",
+                                }}
+                                onClick={() => removeImage(index)}
+                              ></i>
+                            </div>
+                          ))}
+                        </div>
                   </div>
                 </div>
               </div>

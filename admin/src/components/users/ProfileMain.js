@@ -44,7 +44,7 @@ const ProfileMain = () => {
   };
 
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
     if (user) {
       setName(user.name);
       setEmail(user.email);

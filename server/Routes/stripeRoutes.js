@@ -100,7 +100,7 @@ stripeRouter.post("/webhook", async (req, res) => {
         webhookSecret
       );
     } catch (err) {
-      console.log(`⚠️  Webhook signature verification failed:  ${err}`);
+      // console.log(`⚠️  Webhook signature verification failed:  ${err}`);
       return res.sendStatus(400);
     }
     // Extract the object from the event.

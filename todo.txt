@@ -1,0 +1,4 @@
+TODO
+-clear preview after added product/edit
+-set category when is telecomenzi
+-allow some styling on the description

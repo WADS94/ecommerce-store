@@ -210,7 +210,7 @@ productRoute.post(
 
     req.body.image = imagesLinks[0].url;
     req.body.gallery = imagesLinks;
-    console.log(req.body);
+    // console.log(req.body);
     const { name, price, description, image, countInStock, gallery, category } =
       req.body;
     const productExist = await Product.findOne({ name });
