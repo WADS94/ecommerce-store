@@ -17,6 +17,19 @@ const LatestOrder = (props) => {
       ) : (
         <div className="table-responsive">
           <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Nume</th>
+                <th scope="col">Email</th>
+                <th scope="col">Total</th>
+                <th scope="col">Platit</th>
+                <th scope="col">Data</th>
+                <th>Status</th>
+                <th scope="col" className="text-end">
+                  Detalii
+                </th>
+              </tr>
+            </thead>
             <tbody>
               {orders.slice(0, 5).map((order) => (
                 <tr key={order._id}>
@@ -37,6 +50,13 @@ const LatestOrder = (props) => {
                     )}
                   </td>
                   <td>{moment(order.createdAt).calendar()}</td>
+                  <td>
+                    {order.isDelivered ? (
+                      <span className="badge btn-success">Livrat</span>
+                    ) : (
+                      <span className="badge btn-dark">Nu a fost livrat</span>
+                    )}
+                  </td>
                   <td className="d-flex justify-content-end align-item-center">
                     <Link to={`/order/${order._id}`} className="text-success">
                       <i className="fas fa-eye"></i>

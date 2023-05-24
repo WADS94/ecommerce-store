@@ -112,7 +112,10 @@ orderRouter.get(
           { $match: { isPaid: true } },
           { $group: { _id: null, totalValue: { $sum: "$totalPrice" } } },
         ]),
-        Order.find().sort({ createdAt: -1 }).limit(10),
+        Order.find()
+          .populate("user", "name email")
+          .sort({ createdAt: -1 })
+          .limit(10),
       ]);
 
     const ordersValue = totalValueOfPaidOrdersResults.length

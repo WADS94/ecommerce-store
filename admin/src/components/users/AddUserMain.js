@@ -153,7 +153,7 @@ const AddUserMain = () => {
                   </div>
                   <div className="mb-4">
                     <label htmlFor="user_isadmin" className="form-label">
-                      Este admin
+                      Este administrator
                     </label>
                     <select
                       className="form-control"
