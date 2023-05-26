@@ -2,3 +2,4 @@ TODO
 -clear preview after added product/edit
 -set category when is telecomenzi
 -allow some styling on the description
+-remove price slider in the initial position or remove lei from it
