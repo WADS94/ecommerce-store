@@ -20,7 +20,7 @@ const AddProductMain = () => {
   const [gallery, setGallery] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Telecomenzi");
   const [imagesPreview, setImagesPreview] = useState([]);
   const dispatch = useDispatch();
 
