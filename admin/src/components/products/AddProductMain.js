@@ -7,6 +7,8 @@ import { createProduct } from "./../../Redux/Actions/ProductActions";
 import Toast from "../LoadingError/Toast";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
+import DescriptionEditor from "../Editor/DescriptionEditor";
+import { convertToRaw } from 'draft-js';
 
 const ToastObjects = {
   pauseOnFocusLoss: false,
@@ -57,6 +59,12 @@ const AddProductMain = () => {
     dispatch(
       createProduct(name, price, description, gallery, countInStock, category)
     );
+  };
+
+  const handleEditorChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    const rawContent = convertToRaw(contentState);
+    setDescription(JSON.stringify(rawContent));
   };
 
   const onChange = (e) => {
@@ -173,14 +181,7 @@ const AddProductMain = () => {
                   </div>
                   <div className="mb-4">
                     <label className="form-label">Descriere</label>
-                    <textarea
-                      placeholder="Scrie aici"
-                      className="form-control"
-                      rows="7"
-                      required
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                    ></textarea>
+                    <DescriptionEditor handleEditorChange={handleEditorChange} initialContent={description} />
                   </div>
                   <div className="mb-4">
                     <label className="form-label">Galerie</label>

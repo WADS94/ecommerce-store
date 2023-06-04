@@ -14,6 +14,8 @@ import { PRODUCT_CREATE_REVIEW_RESET } from "../Redux/Constants/ProductConstants
 import moment from "moment";
 import "moment/locale/ro";
 import Footer from "./../components/Footer";
+import { stateToHTML } from 'draft-js-export-html';
+import { convertFromRaw } from 'draft-js';
 
 const SingleProduct = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -33,6 +35,15 @@ const SingleProduct = ({ history, match }) => {
     error: errorCreateReview,
     success: successCreateReview,
   } = productReviewCreate;
+
+  let descriptionHTML = '';
+  try {
+    const rawContent = JSON.parse(product.description);
+    descriptionHTML = stateToHTML(convertFromRaw(rawContent));
+  } catch (error) {
+    // If product.description is not a valid JSON string, assume it's plain text
+    descriptionHTML = product.description;
+  }
 
   useEffect(() => {
     if (successCreateReview) {
@@ -89,7 +100,7 @@ const SingleProduct = ({ history, match }) => {
                   <div className="product-info">
                     <div className="product-name">{product.name}</div>
                   </div>
-                  <p>{product.description}</p>
+                  <p dangerouslySetInnerHTML={{ __html: descriptionHTML }}></p>
 
                   <div className="product-count col-lg-7 ">
                     <div className="flex-box d-flex justify-content-between align-items-center">

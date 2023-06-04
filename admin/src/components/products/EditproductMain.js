@@ -10,6 +10,9 @@ import { PRODUCT_UPDATE_RESET } from "../../Redux/Constants/ProductConstants";
 import { toast } from "react-toastify";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
+import DescriptionEditor from "../Editor/DescriptionEditor";
+import { convertToRaw } from 'draft-js';
+
 
 const ToastObjects = {
   pauseOnFocusLoss: false,
@@ -26,6 +29,7 @@ const EditProductMain = (props) => {
   const [gallery, setGallery] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+
   const [category, setCategory] = useState("");
   const [imagesPreview, setImagesPreview] = useState([]);
 
@@ -62,18 +66,21 @@ const EditProductMain = (props) => {
         dispatch(editProduct(productId));
       } else {
         setName(product.name);
-        setDescription(product.description);
         setCountInStock(product.countInStock);
         setGallery([]);
         setCategory(product.category);
         setPrice(product.price);
         setImagesPreview([]);
+        setDescription(product.description);
       }
     }
   }, [product, dispatch, productId, successUpdate]);
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+
     dispatch(
       updateProduct({
         _id: productId,
@@ -86,6 +93,13 @@ const EditProductMain = (props) => {
       })
     );
   };
+
+  const handleEditorChange = (editorState) => {
+    const contentState = editorState.getCurrentContent();
+    const rawContent = convertToRaw(contentState);
+    setDescription(JSON.stringify(rawContent));
+  };
+  
   const onChange = (e) => {
     const files = Array.from(e.target.files);
 
@@ -198,14 +212,14 @@ const EditProductMain = (props) => {
                       </div>
 
                       <div className="mb-4">
-                        <label htmlFor="product_price" className="form-label">
+                        <label htmlFor="product_stock" className="form-label">
                           Count In Stock
                         </label>
                         <input
                           type="number"
                           placeholder="Scrie aici"
                           className="form-control"
-                          id="product_price"
+                          id="product_stock"
                           required
                           value={countInStock}
                           onChange={(e) => setCountInStock(e.target.value)}
@@ -213,14 +227,12 @@ const EditProductMain = (props) => {
                       </div>
                       <div className="mb-4">
                         <label className="form-label">Descriere</label>
-                        <textarea
-                          placeholder="Scrie aici"
-                          className="form-control"
-                          rows="7"
-                          required
-                          value={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                        ></textarea>
+                        
+                        <DescriptionEditor
+                          key={name}
+                          handleEditorChange={handleEditorChange}
+                          initialContent={description}
+                        />
                       </div>
                       <div className="mb-4">
                         <label className="form-label">Galerie</label>
