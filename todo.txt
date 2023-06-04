@@ -1,4 +1,2 @@
 TODO
--clear preview after added product/edit
--allow some styling on the description
--remove price slider in the initial position or remove lei from itnpm 
+-remove price slider in the initial position or remove lei from it
