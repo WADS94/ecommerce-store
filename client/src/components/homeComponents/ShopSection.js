@@ -143,7 +143,7 @@ const ShopSection = (props) => {
                           min={minPrice}
                           max={maxPrice}
                           defaultValue={[minPrice, maxPrice]}
-                          tipFormatter={(value) => `${value} Lei`}
+                          tipFormatter={(value) => `${value}`}
                           tipProps={{
                             placement: "top",
                             visible: true,
