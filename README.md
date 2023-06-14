@@ -1,5 +1,3 @@
-I apologize for the confusion. Here is the markup version of the README:
-
 <pre>
 # Magazinul Casa Viitorului
 
@@ -59,7 +57,7 @@ Dacă aveți întrebări sau întâmpinați probleme în timpul instalării sau 
 
 ## Autor
 
-Magazinul Casa Viitorului a fost creat de Alexandru Serban(https://github.com/your_username) ca proiect de licență pentru Universitatea Titu Maiorescu.
+Magazinul Casa Viitorului a fost creat de Alexandru Serban ca proiect de licență pentru Universitatea Titu Maiorescu.
 
 ---
 
