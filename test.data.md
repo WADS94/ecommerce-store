@@ -17,3 +17,4 @@ Stripe
 
 stripe listen --forward-to http://localhost:1000/webhook
 
+https://us9.admin.mailchimp.com/
