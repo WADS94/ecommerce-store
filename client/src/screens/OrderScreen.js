@@ -14,7 +14,9 @@ import { URL } from "../Redux/Url";
 import Footer from "./../components/Footer";
 
 const OrderScreen = ({ match }) => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [sdkReady, setSdkReady] = useState(false);
   const orderId = match.params.id;
   const dispatch = useDispatch();
@@ -178,7 +180,7 @@ const OrderScreen = ({ match }) => {
                     {order.isDelivered ? (
                       <div className="bg-info p-2 col-12">
                         <p className="text-white text-center text-sm-start">
-                          Livrat pe {moment(order.deliveredAt).calendar()}
+                          Livrat {moment(order.deliveredAt).calendar()}
                         </p>
                       </div>
                     ) : (

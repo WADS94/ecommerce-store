@@ -10,7 +10,9 @@ import { listMyOrders } from "../Redux/Actions/OrderActions";
 import Footer from "./../components/Footer";
 
 const ProfileScreen = () => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
 

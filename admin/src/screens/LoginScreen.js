@@ -6,7 +6,9 @@ import { login } from "../Redux/Actions/userActions";
 import Message from "./../components/LoadingError/Error";
 
 const Login = ({ history }) => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

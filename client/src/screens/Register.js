@@ -8,7 +8,9 @@ import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 
 const Register = ({ location, history }) => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

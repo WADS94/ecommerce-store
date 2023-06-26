@@ -1,2 +1,0 @@
-TODO
--remove price slider in the initial position or remove lei from it

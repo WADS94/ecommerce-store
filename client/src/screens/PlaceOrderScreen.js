@@ -8,7 +8,9 @@ import Message from "./../components/LoadingError/Error";
 import Footer from "./../components/Footer";
 
 const PlaceOrderScreen = ({ history }) => {
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
