@@ -73,12 +73,12 @@ orderRouter.get(
         $unwind: "$user",
       },
       { $match: keyword },
-      { $sort: { _id: -1 } },
+      { $sort: { createdAt: -1 } },
     ];
 
     const orders = await Order.aggregate(pipeline)
-      .limit(pageSize)
-      .skip(pageSize * (page - 1));
+    .skip(pageSize * (page - 1))  
+    .limit(pageSize);
     const count = await Order.aggregate([...pipeline, { $count: "count" }]);
     const totalCount = count.length ? count[0].count : 0;
 
