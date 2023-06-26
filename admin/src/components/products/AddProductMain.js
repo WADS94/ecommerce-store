@@ -32,7 +32,7 @@ const AddProductMain = () => {
     "Senzori",
     "Priza",
     "Accesorii",
-    "Butoane",
+    "Boxe",
     "Becuri",
     "Sisteme de alarma",
     "Panouri de control",

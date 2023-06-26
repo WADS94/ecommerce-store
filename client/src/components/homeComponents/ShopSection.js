@@ -37,7 +37,7 @@ const ShopSection = (props) => {
     "Senzori",
     "Priza",
     "Accesorii",
-    "Butoane",
+    "Boxe",
     "Becuri",
     "Sisteme de alarma",
     "Panouri de control",
@@ -83,7 +83,9 @@ const ShopSection = (props) => {
 
   const handlePageChange = (e) => {
     e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setPagenumber(e.target.text);
+    
   };
 
   useEffect(() => {

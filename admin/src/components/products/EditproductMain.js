@@ -41,7 +41,7 @@ const EditProductMain = (props) => {
     "Senzori",
     "Priza",
     "Accesorii",
-    "Butoane",
+    "Boxe",
     "Becuri",
     "Sisteme de alarma",
     "Panouri de control",

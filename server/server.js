@@ -46,21 +46,24 @@ app.get("/api/config/paypal", (req, res) => {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Serve static files from the React client app
-app.use(express.static(path.resolve(__dirname, "../client/build")));
-
 // Serve static files from the React admin app
 app.use("/admin", express.static(path.resolve(__dirname, "../admin/build")));
+
+
+// For /admin route, send the admin index.html file
+app.get("/admin*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../admin/build/index.html"));
+});
+
+// Serve static files from the React client app
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Anything that doesn't match the above, send back the index.html file
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
 });
 
-// For /admin route, send the admin index.html file
-app.get("/admin*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../admin/build/index.html"));
-});
+
 
 // ERROR HANDLER
 app.use(notFound);

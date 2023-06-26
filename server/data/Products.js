@@ -290,10 +290,10 @@ const products = [
     category: "Accesorii",
   },
   {
-    name: "Butoane inteligente, SmartSwitch, Control lumină, Alb",
+    name: "Boxe inteligente, SmartSwitch, Control lumină, Alb",
     image: "/images/buton1.png",
     description:
-      "Butoanele inteligente SmartSwitch iti permit sa controlezi luminile din casa cu usurinta si eficienta. Compatibile cu Google Home, Amazon Alexa si IFTTT, aceste butoane ofera o solutie moderna si eleganta pentru a controla lumina din orice camera. Cu designul minimalist si alb, se integreaza perfect in orice decor interior.",
+      "Boxele inteligente SmartSwitch iti permit sa controlezi luminile din casa cu usurinta si eficienta. Compatibile cu Google Home, Amazon Alexa si IFTTT, aceste Boxe ofera o solutie moderna si eleganta pentru a controla lumina din orice camera. Cu designul minimalist si alb, se integreaza perfect in orice decor interior.",
     price: 25,
     countInStock: 7,
     rating: 4,
@@ -316,7 +316,7 @@ const products = [
         url: "https://res.cloudinary.com/dxwucao9f/image/upload/v1683200249/products/cayviu25a5tpxyt5zhlb.webp",
       },
     ],
-    category: "Butoane",
+    category: "Boxe",
   },
   {
     name: "Bec inteligent LED, SmartBulb, RGBW, Wi-Fi, E27",
