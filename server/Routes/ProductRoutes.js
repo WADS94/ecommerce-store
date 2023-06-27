@@ -357,6 +357,15 @@ productRoute.get(
     ]);
 
     if (productWithAvatar && productWithAvatar.length > 0) {
+      productWithAvatar[0].reviews.sort((a, b) => {
+        if (a.createdAt > b.createdAt) {
+          return -1;
+        } else if (a.createdAt < b.createdAt) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
       res.json(productWithAvatar[0]);
     } else {
       res.status(404);

@@ -49,7 +49,7 @@ const LatestOrder = (props) => {
                       </span>
                     )}
                   </td>
-                  <td>{moment(order.createdAt).calendar()}</td>
+                  <td>{moment(order.createdAt).format("Do MMM YYYY")}</td>
                   <td>
                     {order.isDelivered ? (
                       <span className="badge btn-success">Livrat</span>

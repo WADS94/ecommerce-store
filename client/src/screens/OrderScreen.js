@@ -147,7 +147,7 @@ const OrderScreen = ({ match }) => {
                     {order.isPaid ? (
                       <div className="bg-info p-2 col-12">
                         <p className="text-white text-center text-sm-start">
-                          Platit {moment(order.paidAt).calendar()}
+                          Platit {moment(order.paidAt).format("Do MMM YYYY")}
                         </p>
                       </div>
                     ) : (
@@ -180,7 +180,7 @@ const OrderScreen = ({ match }) => {
                     {order.isDelivered ? (
                       <div className="bg-info p-2 col-12">
                         <p className="text-white text-center text-sm-start">
-                          Livrat {moment(order.deliveredAt).calendar()}
+                          Livrat {moment(order.deliveredAt).format("Do MMM YYYY")}
                         </p>
                       </div>
                     ) : (
