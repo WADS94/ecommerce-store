@@ -15,6 +15,6 @@ https://dashboard.stripe.com/test/payments
 Stripe
 4242424242424242
 
-stripe listen --forward-to http://localhost:1000/webhook
+stripe listen --forward-to http://localhost:1000/api/stripe/webhook
 
 https://us9.admin.mailchimp.com/
